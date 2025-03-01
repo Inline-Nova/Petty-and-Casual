@@ -1,0 +1,29 @@
+body {
+    background-color: #caf0f8;
+    font-family: "Comic Sans MS", "Comic Sans";
+    margin: 0;
+    height: 100%;
+}
+
+h1 {
+    color: #023047;
+    text-align: center;
+    font-size: 60px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap; /* Ensures everything stays in one row */
+    gap: 10px; /* Adds spacing between images */
+    width: 100%;
+    overflow: hidden;
+}  
+
+.small-img {
+    width: 30%; /* Adjust to fit the screen */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 300px; /* Prevent images from being too large on bigger screens */
+}
