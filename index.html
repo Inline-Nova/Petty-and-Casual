@@ -23,7 +23,35 @@
 
     </div>
 
-<img class="small-img" src="https://media.tenor.com/LXcOKNc5CmAAAAAj/bouncy-jeff-jeff.gif" alt="Tiny_cute_Jeff" style="width: 50%; max-width: 100px; height: auto">
+    <img class="small-img" src="https://media.tenor.com/LXcOKNc5CmAAAAAj/bouncy-jeff-jeff.gif" alt="Tiny_cute_Jeff" style="width: 50%; max-width: 100px; height: auto">
+
+
+    <div id="comparisonResult"></div>
+
+    <script>
+        window.onload = function() {
+            const correctWord = "hello"; // Define the word to compare with
+
+            document.getElementById('userInput').addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    const userInput = document.getElementById('userInput').value;
+
+                    // Compare the user input with the predefined correct word
+                    if (userInput.toLowerCase() === correctWord.toLowerCase()) {
+                        document.getElementById('comparisonResult').textContent = "Correct!";
+                        document.getElementById('comparisonResult').style.color = "green";
+                    } else {
+                        document.getElementById('comparisonResult').textContent = "Incorrect, try again!";
+                        document.getElementById('comparisonResult').style.color = "red";
+                    }
+
+                    // Clear the input field after the Enter key is pressed
+                    document.getElementById('userInput').value = '';
+                }
+            });
+        };
+    </script>
+>>>>>>> 38d9bbbebfd64a2f67c06679cb7c85698d362182
 
 </body>
 </html>

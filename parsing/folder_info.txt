@@ -1,0 +1,16 @@
+parsing folder: 
+
+dictionary file is sourced from https://www.kaggle.com/datasets/kaleidawave/english-dictionary 
+the file contains the word, part of speech, and definition
+for the purposes of this project, we don't need the part of speech and definition
+
+in excel: the dictionary.csv is cleaned.
+    part of speech and definition column removed
+    repeat words removed
+    words that have hyphens '-', apostrophes ', and whitespace 
+
+using this cleaned dictionary, we parse through it to get substrings of 2 characters on every 50th word in the csv file 
+example: 
+    take the word abdicate. we will store ab,bd,di,ic,ca,at,te 
+
+this will be the basis of the game's substring text to play the game
