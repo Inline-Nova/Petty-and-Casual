@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd 
 
 # load the csv file into a dataframe 
-df = pd.read_csv("dictionary.csv", header=None)
+df = pd.read_csv("dictionary_cleaned.csv", header=None)
 
 # extract every 50th word and put it into a list
 words = df.iloc[::50,0].dropna().tolist() # every 50 rows, in the 0th column 
@@ -28,8 +28,28 @@ def get_substrings(word):
     # two character slice
 
 # now process the words and store the substrings
+
+# test counter to limit word amount
+#test_limiter = 0;
+
 substrings = []
 for word in words:
+    # test test
+    #if test_limiter >= 10:
+     #   break
+    # test test
+
     substrings.extend(get_substrings(word))
+
+    # test test
+    #test_limiter += 1
+
+for item in substrings:
+    print(item)
+
+
+# convert substrings to pandas dataframe, then save dataframe as csv file
+# single column named substring 
+pd.DataFrame(substrings, columns=["Substring"]).to_csv("substrings.csv", index=False) # false makes it not add row numbers
 
 
