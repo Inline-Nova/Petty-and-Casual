@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>End Game</title>
-    <script src="script.js" defer></script>
+    <!-- <script src="script.js" defer></script> -->
 </head>
 <body>
     <h1>
@@ -20,16 +20,27 @@
         Substrings solved: <span id="solvedCount">0</span>
     </h3>
 
-    <div id="gameContainer" style="display: none;">
-        <h2 id="randomLine"></h2>
-        <div class="box">
-            <input type="text" id="userInput" placeholder="Enter text here">
-        </div>
-        <div id="comparisonResult"></div>
-    </div>
-
     <button id="Button" onclick="startOver()">Start Over</button>
 
 </body>
+
+<script>
+    // Retrieve substringsSolved from localStorage and display it
+    window.onload = function() {
+        const substringsSolved = parseInt(localStorage.getItem('substringsSolved')) || 0;
+        const solvedCountElement = document.getElementById('solvedCount');
+        if (solvedCountElement) {
+            solvedCountElement.textContent = substringsSolved;
+        }
+    };
+
+    function startOver() {
+    localStorage.setItem('substringsSolved', 0); // Reset stored count
+    substringsSolved = 0; // Reset the count in the script as well
+    // displaySolvedCount(); // Update the displayed count to 0
+    window.location.href = "index.html"; // Redirect to index.html
+}
+
+</script>
 
 </html>

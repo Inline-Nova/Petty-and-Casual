@@ -66,6 +66,7 @@ function startGame() {
     startTimer(); // start timer
 }
 
+// TIMER START 
 let timeLeft = 60; // Set timer in seconds
 let timerInterval;
 
@@ -134,12 +135,6 @@ function displaySolvedCount() {
     }
 }
 
-function startOver() {
-    localStorage.setItem('substringsSolved', 0); // Reset stored count
-    substringsSolved = 0; // Reset the count in the script as well
-    displaySolvedCount(); // Update the displayed count to 0
-    window.location.href = "index.html"; // Redirect to index.html
-}
 
 
 
