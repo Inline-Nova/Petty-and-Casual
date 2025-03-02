@@ -9,6 +9,7 @@ window.onload = function() {
     console.log(document.getElementById('comparisonResult')); // Check if element exists
     
     substringsSolved = 0;
+    substringsSolved = 0;
     loadDictionary(); // loading JSON
 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
@@ -67,8 +68,6 @@ function startGame() {
     startTimer(); // start timer
 }
 
-
-// TIMER SYSTEM 
 let timeLeft = 60; // Set timer in seconds
 let timerInterval;
 
