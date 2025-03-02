@@ -38,13 +38,13 @@
 
             let correctWord = "";
 
-            // fetch('parsing/dictionary.csv')  // Updated path to 'parsing/dictionary.csv'
-            //     .then(response => response.text())
-            //     .then(data => {
-            //         const lines = data.split('\n');  // Split content by line breaks
-            //         correctWord = lines[Math.floor(Math.random() * lines.length)].trim();  // Get random valid word
-            //     })
-            //     .catch(error => console.error('Error fetching file:', error));
+            fetch('parsing/dictionary.csv')  // Updated path to 'parsing/dictionary.csv'
+                .then(response => response.text())
+                .then(data => {
+                    const lines = data.split('\n');  // Split content by line breaks
+                    correctWord = lines[Math.floor(Math.random() * lines.length)].trim();  // Get random valid word
+                })
+                .catch(error => console.error('Error fetching file:', error));
 
             document.getElementById('userInput').addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
