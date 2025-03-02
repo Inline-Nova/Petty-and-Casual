@@ -21,6 +21,12 @@ h2 {
     font-size: 40px;
 }
 
+h3 {
+    color: #fb8500;
+    text-align: center;
+    font-size: 30px;
+}
+
 .container {
     display: flex;
     flex-direction: row;

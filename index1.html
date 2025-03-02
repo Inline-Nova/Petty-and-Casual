@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>End Game</title>
+</head>
+<body>
+    <h1>
+        You're dead!
+    </h1>
+
+    <div class = "container">
+        <img class="small-img" src="https://static.wikia.nocookie.net/marvel-rivals/images/d/de/Jeff_the_Land_Shark_Hero_Portrait.png/revision/latest?cb=20240819162642" alt="Jeff_the_Land_Shark_Hero_Portrait">
+        <img class="small-img" src="https://cdn.pixabay.com/animation/2023/03/19/15/38/15-38-15-130_512.gif" alt="Boba" style="width: 50%; max-width: 500px; height: auto; transform: rotate(90deg);">
+        <img class="small-img" src="images/boom.png" alt = "boom">
+    </div>
+
+    <h2>
+        Stats:
+    </h2>
+
+    <h3>
+        Substrings solved:
+    </h3>
+
+    <p id="timer">Time Left: <span id="timeLeft">60</span> seconds</p>
+
+    <script>
+        let timeLeft = 60; // Set timer in seconds
+        let timerInterval;
+    
+        // Start the timer when the page loads
+        window.onload = function() {
+            startTimer(); // Ensure the timer starts on page load
+        };
+
+        function startTimer() {
+            timerInterval = setInterval(function () {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    document.getElementById('timeLeft').textContent = timeLeft; // Update timer on screen
+                } else {
+                    clearInterval(timerInterval); // Stop timer when it reaches 0
+                    document.getElementById('comparisonResult').textContent = "Time's up! Game Over!";
+                    document.getElementById('comparisonResult').style.color = "red";
+                    document.getElementById('userInput').disabled = true; // Disable input field
+                }
+            }, 1000); // Update every second
+        }
+    </script>
+    
+</body>
+</html>
