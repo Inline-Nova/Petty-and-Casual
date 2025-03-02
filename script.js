@@ -8,7 +8,7 @@ window.onload = function() {
     console.log(document.getElementById('timeLeft')); // Check if element exists
     console.log(document.getElementById('comparisonResult')); // Check if element exists
     
-    getRandomLine();
+    substringsSolved = 0;
     loadDictionary(); // loading JSON
 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
@@ -59,6 +59,7 @@ function getRandomLine() {
         });
 }
 
+// the initial button to enter the game
 function startGame() {
     document.getElementById('Button').style.display = "none"; // Hide start button
     document.getElementById('gameContainer').style.display = "block"; // Show game elements
@@ -66,7 +67,8 @@ function startGame() {
     startTimer(); // start timer
 }
 
-// TIMER START 
+
+// TIMER SYSTEM 
 let timeLeft = 60; // Set timer in seconds
 let timerInterval;
 
@@ -91,6 +93,7 @@ function startTimer() {
 
     }, 1000); // Update every second
 }
+
 
 // checking if input is valid
 function checkInput(){ 
@@ -126,6 +129,7 @@ function checkInput(){
     document.getElementById('userInput').value = ''; 
 
 }
+
 
 function displaySolvedCount() {
     const solvedCountElement = document.getElementById('solvedCount');
