@@ -38,7 +38,7 @@
 
             let correctWord = "";
 
-            fetch('parsing/dictionary.csv')  // Updated path to 'parsing/dictionary.csv'
+            fetch('parsing/dictionary_cleaned.csv')  // Updated path to 'parsing/dictionary.csv'
                 .then(response => response.text())
                 .then(data => {
                     const lines = data.split('\n');  // Split content by line breaks
