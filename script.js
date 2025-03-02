@@ -10,7 +10,6 @@ window.onload = function() {
     
     getRandomLine();
     loadDictionary(); // loading JSON
-    startTimer(); // start timer
 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
@@ -64,6 +63,7 @@ function startGame() {
     document.getElementById('Button').style.display = "none"; // Hide start button
     document.getElementById('gameContainer').style.display = "block"; // Show game elements
     getRandomLine(); // Call function to fetch and display a random substring
+    startTimer(); // start timer
 }
 
 let timeLeft = 60; // Set timer in seconds
