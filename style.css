@@ -9,6 +9,10 @@ body {
     justify-content: center;
 }
 
+#gameContainer {
+    text-align: center;
+}
+
 h1 {
     color: #023047;
     text-align: center;
@@ -35,14 +39,16 @@ h3 {
     flex-wrap: nowrap; /* Ensures everything stays in one row */
     gap: 10px; /* Adds spacing between images */
     width: 100%;
+    height: auto;
     overflow: hidden;
 }  
 
 .small-img {
-    width: 30%; /* Adjust to fit the screen */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 300px; /* Prevent images from being too large on bigger screens */
+    height: auto; /* Let the image scale based on its natural aspect ratio */
+    width: auto; /* Keep the aspect ratio intact */
+    max-height: 300px;
     object-fit: contain; /* Ensures images fit without being cut off */
+    object-position: center; /* Centers the image */
 }
 
 .box {
@@ -68,4 +74,22 @@ h3 {
     font-family: "Comic Sans MS", "Comic Sans";
     border: none; /* Removes the border around the input field */
     outline: none;
+}
+
+#Button {
+    background-color: #023047; /* Dark blue */
+    color: white; /* White text */
+    font-size: 30px; /* Bigger font */
+    font-weight: bold;
+    padding: 20px 40px; /* Bigger padding */
+    border: none; /* Remove default border */
+    border-radius: 15px; /* More rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease-in-out;
+    display: block; /* Makes it easier to center */
+    margin: 50px auto; /* Centers the button */
+}
+
+#Button:hover {
+    background-color: #e84118; /* Darker red on hover */
 }
