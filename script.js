@@ -8,7 +8,7 @@ window.onload = function() {
     console.log(document.getElementById('timeLeft')); // Check if element exists
     console.log(document.getElementById('comparisonResult')); // Check if element exists
     
-    // getRandomLine();
+    substringsSolved = 0;
     loadDictionary(); // loading JSON
 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
@@ -66,7 +66,6 @@ function startGame() {
     startTimer(); // start timer
 }
 
-// TIMER START 
 let timeLeft = 60; // Set timer in seconds
 let timerInterval;
 
