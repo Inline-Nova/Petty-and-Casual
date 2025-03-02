@@ -16,7 +16,7 @@ body {
 h1 {
     color: #023047;
     text-align: center;
-    font-size: 80px;
+    font-size: 70px;
 }
 
 h2 {
@@ -44,11 +44,12 @@ h3 {
 }  
 
 .small-img {
-    height: auto; /* Let the image scale based on its natural aspect ratio */
-    width: auto; /* Keep the aspect ratio intact */
-    max-height: 300px;
+    max-width: 90%; /* Ensures the image does not exceed the container's width */
+    max-height: 230px; /* Restricts the height */
+    height: auto;
     object-fit: contain; /* Ensures images fit without being cut off */
     object-position: center; /* Centers the image */
+    flex-shrink: 1; /* Allows the image to shrink */
 }
 
 .box {
