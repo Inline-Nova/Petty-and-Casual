@@ -5,6 +5,7 @@ let dictionaryWords = []; // create a set for the possible inputs
 window.onload = function() {
     getRandomLine();
     loadDictionary(); // loading JSON
+    startTimer(); // start timer
 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
@@ -49,6 +50,33 @@ function getRandomLine() {
         });
 }
 
+function startGame() {
+    document.getElementById('Button').style.display = "none"; // Hide start button
+    document.getElementById('gameContainer').style.display = "block"; // Show game elements
+    getRandomLine(); // Call function to fetch and display a random substring
+}
+
+let timeLeft = 60; // Set timer in seconds
+let timerInterval;
+
+function startTimer() {
+    timerInterval = setInterval(function () {
+        if (timeLeft > 0) {
+            timeLeft--;
+            document.getElementById('timeLeft').textContent = timeLeft; // Update timer on screen
+        } else {
+            clearInterval(timerInterval); // Stop timer when it reaches 0
+            document.getElementById('comparisonResult').textContent = "Time's up! Game Over!";
+            document.getElementById('comparisonResult').style.color = "red";
+            document.getElementById('userInput').disabled = true; // Disable input field
+        }
+
+        setTimeout(function () {
+            window.location.href = 'index1.html';
+        }, 2000); // Redirect to index1.html after 2 seconds
+    }, 1000); // Update every second
+}
+
 // checking if input is valid
 function checkInput(){ 
     const userInput = document.getElementById('userInput').value.toLowerCase().trim();
@@ -75,6 +103,9 @@ function checkInput(){
 
 }
 
+function startOver() {
+    window.location.href = "index.html"; // Redirect to index.html
+}
 
 
 

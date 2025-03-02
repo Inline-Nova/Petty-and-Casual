@@ -25,36 +25,7 @@
         Substrings solved:
     </h3>
 
-    <button id="startOverBtn" onclick="startOver()">Start Over</button>
-
-    <p id="timer">Time Left: <span id="timeLeft">60</span> seconds</p>
-
-    <script>
-        function startOver() {
-            window.location.href = "index.html"; // Redirect to index.html
-        }
-        
-        let timeLeft = 60; // Set timer in seconds
-        let timerInterval;
-        
-        window.onload = function() {
-            startTimer();
-        };
-    
-        function startTimer() {
-            timerInterval = setInterval(function () {
-                if (timeLeft > 0) {
-                    timeLeft--;
-                    document.getElementById('timeLeft').textContent = timeLeft; // Update timer on screen
-                } else {
-                    clearInterval(timerInterval); // Stop timer when it reaches 0
-                    document.getElementById('comparisonResult').textContent = "Time's up! Game Over!";
-                    document.getElementById('comparisonResult').style.color = "red";
-                    document.getElementById('userInput').disabled = true; // Disable input field
-                }
-            }, 1000); // Update every second
-        }
-    </script>
+    <button id="Button" onclick="startOver()">Start Over</button>
 
 </body>
 

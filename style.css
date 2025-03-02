@@ -9,6 +9,10 @@ body {
     justify-content: center;
 }
 
+#gameContainer {
+    text-align: center;
+}
+
 h1 {
     color: #023047;
     text-align: center;
@@ -68,4 +72,22 @@ h3 {
     font-family: "Comic Sans MS", "Comic Sans";
     border: none; /* Removes the border around the input field */
     outline: none;
+}
+
+#Button {
+    background-color: #023047; /* Dark blue */
+    color: white; /* White text */
+    font-size: 30px; /* Bigger font */
+    font-weight: bold;
+    padding: 20px 40px; /* Bigger padding */
+    border: none; /* Remove default border */
+    border-radius: 15px; /* More rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease-in-out;
+    display: block; /* Makes it easier to center */
+    margin: 50px auto; /* Centers the button */
+}
+
+#Button:hover {
+    background-color: #e84118; /* Darker red on hover */
 }
