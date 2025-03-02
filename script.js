@@ -1,80 +1,80 @@
-// let rows = [];
-// let currentIndex = 0;
-// const batchSize = 100;
 
-// document.getElementById('csvFile').onchange = function (e){
-//     const file = e.target.files[0];
-//     Papa.parse(file,{
+let dictionaryWords = []; // create a set for the possible inputs
 
-//     })
-// }
-
+// on load, load json dictionary and getting a line
 window.onload = function() {
     getRandomLine();
-
-    let correctWord = "";
-
-    // fetch('parsing/dictionary_cleaned.csv')  // Updated path to 'parsing/dictionary.csv'
-    //     .then(response => response.text())
-    //     .then(data => {
-    //         const lines = data.split('\n');  // Split content by line breaks
-    //         correctWord = lines[Math.floor(Math.random() * lines.length)].trim();  // Get random valid word
-    //     })
-    //     .catch(error => console.error('Error fetching file:', error));
+    loadDictionary(); // loading JSON
 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-            const userInput = document.getElementById('userInput').value;
-
-            // Compare the user input with the predefined correct word
-            if (userInput.toLowerCase() === correctWord.toLowerCase()) {
-                document.getElementById('comparisonResult').textContent = "Correct!";
-                document.getElementById('comparisonResult').style.color = "green";
-            } else {
-                document.getElementById('comparisonResult').textContent = "Incorrect, try again!";
-                document.getElementById('comparisonResult').style.color = "red";
-            }
-
-            // Clear the input field after the Enter key is pressed
-            document.getElementById('userInput').value = '';
+            checkInput();
         }
     });
 };
 
+// load the parsed json file
+function loadDictionary(){ 
+    fetch('parsing/dictionary_cleaned.json')
+        .then(response => response.json())
+        .then(data => {
+            dictionaryWords = new Set(data);  // converting to set to use has()
+        })
+        .catch(error => console.error('Error loading dictionary:', error));
+
+}
+
+// getting random substrings
+let randomLine = ""; // declare outside and not as const 
 function getRandomLine() {
     fetch('parsing/substrings.csv')  // Updated path to 'parsing/substrings.csv'
-        .then(response => {
+        .then(response => { // error check
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Network response was not ok/Failed to load file');
             }
             return response.text();
         })
+
         .then(data => {
-            const lines = data.split('\n');
-            lines.shift();
-            // const firstTenLines = lines.slice(0, 10);
-            const randomLine = lines[Math.floor(Math.random() * data.length)].trim();  // Get random substring
+            const lines = data.split('\n').filter(line => line.trim() !== ""); // remove empty lines with trim
+            lines.shift(); // removes first header line 
+            
+            randomLine = lines[Math.floor(Math.random() * lines.length)].trim();  // random substring based on amount of rows
             console.log('Random substring:', randomLine);  // Log the random line to console for debugging
             document.getElementById('randomLine').textContent = randomLine;  // Set it in the <h2> element
         })
-        .catch(error => {
-            console.error('Error fetching file:', error);
+
+        .catch(error => { // error check
+            console.error('Error fetching substrings:', error);
         });
 }
 
+// checking if input is valid
+function checkInput(){ 
+    const userInput = document.getElementById('userInput').value.toLowerCase().trim();
 
-const inputElement = document.getElementById('myInput');
+    // two conditions: if it contains the short phrase, and if it is a valid word in the dictionary JSON
+    const containsSubstring = userInput.includes(randomLine);
+    const isValidWord = dictionaryWords.has(userInput);
 
-// Add an event listener for the 'keydown' event
-inputElement.addEventListener('keydown', function(event) {
-  // Check if the key pressed is Enter (key code 13 or 'Enter')
-  if (event.key === 'Enter') {
-    myFunction(); // Call your function
-  }
-});
+    const resultElement = document.getElementById('comparisonResult'); // for readability 
+    if (containsSubstring && isValidWord) {
+        resultElement.textContent = "Correct!";
+        resultElement.style.color = "green";
 
-// The function to be called when Enter is pressed
-function myFunction() {
-  alert("Enter key was pressed!");
+        getRandomLine(); // get a new prompt
+    } else {
+        resultElement.textContent = "Incorrect, try again!";
+        resultElement.style.color = "red";
+    }
+
+    // reset user input text box to be empty 
+    document.getElementById('userInput').value = '';
+
+    
+
 }
+
+
+
 

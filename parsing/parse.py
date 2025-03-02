@@ -11,12 +11,14 @@ check if word contains phrase -> check if word is in dictionary
 
 import numpy as np
 import pandas as pd 
+import json
 
 # load the csv file into a dataframe 
 df = pd.read_csv("dictionary_cleaned.csv", header=None)
 
 # extract every 50th word and put it into a list
 words = df.iloc[::50,0].dropna().tolist() # every 50 rows, in the 0th column 
+# dropna removes missing values 
 
 
 # make a function to get 2 letter substrings within every word 
@@ -51,5 +53,12 @@ for item in substrings:
 # convert substrings to pandas dataframe, then save dataframe as csv file
 # single column named substring 
 pd.DataFrame(substrings, columns=["Substring"]).to_csv("substrings.csv", index=False) # false makes it not add row numbers
+
+
+# now convert the dictionary to json format for faster access in the javascript information
+word_set = set(df[0].str.lower().dropna()) # convert full dictionary to a set. a set removes duplicates- extra speed
+
+with open("dictionary_cleaned.json", "w") as f:
+    json.dump(list(word_set),f) # now convert it to a list, b/c JSON only supports lists 
 
 
