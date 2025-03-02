@@ -8,7 +8,7 @@ window.onload = function() {
     console.log(document.getElementById('timeLeft')); // Check if element exists
     console.log(document.getElementById('comparisonResult')); // Check if element exists
     
-    getRandomLine();
+    // getRandomLine();
     loadDictionary(); // loading JSON
 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
