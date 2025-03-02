@@ -14,13 +14,13 @@ window.onload = function() {
 
     let correctWord = "";
 
-    fetch('parsing/dictionary_cleaned.csv')  // Updated path to 'parsing/dictionary.csv'
-        .then(response => response.text())
-        .then(data => {
-            const lines = data.split('\n');  // Split content by line breaks
-            correctWord = lines[Math.floor(Math.random() * lines.length)].trim();  // Get random valid word
-        })
-        .catch(error => console.error('Error fetching file:', error));
+    // fetch('parsing/dictionary_cleaned.csv')  // Updated path to 'parsing/dictionary.csv'
+    //     .then(response => response.text())
+    //     .then(data => {
+    //         const lines = data.split('\n');  // Split content by line breaks
+    //         correctWord = lines[Math.floor(Math.random() * lines.length)].trim();  // Get random valid word
+    //     })
+    //     .catch(error => console.error('Error fetching file:', error));
 
     document.getElementById('userInput').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
@@ -51,6 +51,7 @@ function getRandomLine() {
         })
         .then(data => {
             const lines = data.split('\n');
+            lines.shift();
             // const firstTenLines = lines.slice(0, 10);
             const randomLine = lines[Math.floor(Math.random() * data.length)].trim();  // Get random substring
             console.log('Random substring:', randomLine);  // Log the random line to console for debugging
@@ -59,5 +60,21 @@ function getRandomLine() {
         .catch(error => {
             console.error('Error fetching file:', error);
         });
+}
+
+
+const inputElement = document.getElementById('myInput');
+
+// Add an event listener for the 'keydown' event
+inputElement.addEventListener('keydown', function(event) {
+  // Check if the key pressed is Enter (key code 13 or 'Enter')
+  if (event.key === 'Enter') {
+    myFunction(); // Call your function
+  }
+});
+
+// The function to be called when Enter is pressed
+function myFunction() {
+  alert("Enter key was pressed!");
 }
 
