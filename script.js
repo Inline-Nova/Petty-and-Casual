@@ -66,7 +66,7 @@ function startGame() {
     startTimer(); // start timer
 }
 
-let timeLeft = 10; // Set timer in seconds
+let timeLeft = 60; // Set timer in seconds
 let timerInterval;
 
 function startTimer() {

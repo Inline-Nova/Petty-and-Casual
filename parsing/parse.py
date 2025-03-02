@@ -1,4 +1,5 @@
-''' parse through csv file of a dictionary and substring into parts of two
+''' 
+parse through csv file of a dictionary and substring into parts of two
 so if there's a word, abdicate, we will substring by 2 letters, 'ab' 'bd' 'di' 'ic'... and store this collectively
     do this every 50 words to increase variety as the csv file is ordered
 put this into a new csv file which will be built in frequency checking 
@@ -6,7 +7,6 @@ put this into a new csv file which will be built in frequency checking
 
 future work will consist of comparing inputed words to the existing dictionary 
 check if word contains phrase -> check if word is in dictionary
-
 '''
 
 import numpy as np
