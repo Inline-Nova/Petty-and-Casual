@@ -69,7 +69,7 @@ const inputElement = document.getElementById('myInput');
 inputElement.addEventListener('keydown', function(event) {
   // Check if the key pressed is Enter (key code 13 or 'Enter')
   if (event.key === 'Enter') {
-    myFunction(); // Call your function
+    getRandomLine(); // Call your function
   }
 });
 
