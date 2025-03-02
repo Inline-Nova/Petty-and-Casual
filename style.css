@@ -18,7 +18,7 @@ h1 {
 h2 {
     color: #fb8500;
     text-align: center;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .container {
@@ -36,6 +36,7 @@ h2 {
     width: 30%; /* Adjust to fit the screen */
     height: auto; /* Maintain aspect ratio */
     max-width: 300px; /* Prevent images from being too large on bigger screens */
+    object-fit: contain; /* Ensures images fit without being cut off */
 }
 
 .box {
